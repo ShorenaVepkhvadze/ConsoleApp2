@@ -54,48 +54,42 @@ namespace ConsoleApp2
         // მეთოდმა უნდა გამოიყვანოს კონსოლში ეს ორი რიცხვი.
         static void MinMax(double x1, double x2, double x3, double x4)
         {
-            if (x1 > x2 && x1 > x3 && x1 > x4)
+            if (x1 >= x2 && x1 >= x3 && x1 >= x4)
             {
                 Console.WriteLine("The Max number: " + x1);
             }
-            else if (x2 > x1 && x2 > x3 && x2 > x4)
+            else if (x2 >= x1 && x2 >= x3 && x2 >= x4)
             {
                 Console.WriteLine("The Max number: " + x2);
             }
-            else if (x3 > x1 && x3 > x1 && x3 > x4)
+            else if (x3 >= x1 && x3 >= x1 && x3 >= x4)
             {
                 Console.WriteLine("The Max number: " + x3);
             }
-            else if (x4 > x1 && x4 > x2 && x4 > x3)
+            else if (x4 >= x1 && x4 >= x2 && x4 >= x3)
             {
                 Console.WriteLine("The Max number: " + x4);
             }
-            else
-            {
-                Console.WriteLine("Numbers is equal");
-            }
+            
 
-            if (x1 < x2 && x1 < x3 && x1 < x4)
+            if (x1 <= x2 && x1 <= x3 && x1 <= x4)
             {
                 Console.WriteLine("The Min number: " + x1);
             }
-            else if (x2 < x1 && x2 < x3 && x2 < x4)
+            else if (x2 <= x1 && x2 <= x3 && x2 <= x4)
             {
                 Console.WriteLine("The Min number: " + x2);
             }
-            else if (x3 < x1 && x3 < x2 && x3 < x4)
+            else if (x3 <= x1 && x3 <= x2 && x3 <= x4)
             {
                 Console.WriteLine("The Min number: " + x3);
 
             }
-            else if (x4 < x1 && x4 < x2 && x4 < x3)
+            else if (x4 <= x1 && x4 <= x2 && x4 <= x3)
             {
-                Console.WriteLine("The Min number: " + x3);
+                Console.WriteLine("The Min number: " + x4);
             }
-            else
-            {
-                Console.WriteLine("Numbers is Equal");
-            }
+            
         }
 
         //შევქმნათ მეთოდი, რომელმაც უნდა მიიღოს მეორე მეთოდის მეშვეობით მომხმარებლისგან ხილის დასახელება.
