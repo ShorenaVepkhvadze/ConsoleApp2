@@ -23,7 +23,15 @@ namespace ConsoleApp2
             // სამი ცდის შემდეგ, თუ რიცხვი ვერ გამოიცნო - წაგება
             // თუ რიცხვი გამოიცნო - მოგება.
 
-            startGame();
+            int logNumber = 1;
+            while (logNumber <= 3)
+            {
+                logNumber++;
+
+
+                startGame();
+
+            }
         }
 
         static void startGame()
