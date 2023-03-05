@@ -1,71 +1,123 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp2
+class HomeworkFive
 {
-    internal class Program
+    static void Main(string[] args) // შესვლის წერტილის მეთოდი, მხოლოდ ერთი
     {
-        static void Main(string[] args)
+        // Game
+        startGame();
+    }
+
+    static void startGame()
+    {
+        welcomingMessage();
+
+        int randomNumber = getRandomNumber();
+        int usersNumber;
+        // int counter = 1;
+
+        // უნდა შევადაროთ ორი რიცხვი
+        // თუ გამოვიცანი, მაშინ მოგება
+        // თუ ვერ გამოვიცანი და ჩემი რიცხვი ჩაფიქრებულზე ნაკლებია - შესაბამისი შეტყობინება
+        // თუ ვერ გამოვიცანი და ჩემი რიცხვი ჩაფიქრებულზე მეტია - შესაბამისი შეტყობინება
+
+        // ფუნქციონალის დამატება - უნდა მქონდეს სამი ცდა
+        // მესამე ცდის ბოლოს, თუ ვერ გამოვიცანი, მაშინ წავაგე
+        // თუ გამოვიცანი - მოვიგე
+
+        //while(counter <= 3)
+        //{
+        //usersNumber = enterNumber();
+
+        //if (randomNumber == usersNumber)
+        // {
+        //    Console.WriteLine("You have WON!");
+        //     return; // ყველაფერი დასრულდება გაგრძელების გარეშე
+        //}
+        // else if (randomNumber > usersNumber && counter != 3)
+        // {
+        //     Console.WriteLine("Your number is lower than random number.");
+        // }
+        // else if (randomNumber < usersNumber && counter != 3)
+        // {
+        // Console.WriteLine("Your number is higher than random number.");
+        // }
+        // counter++;
+        // }
+
+        //for (int counter = 1; counter <= 3; counter++)
+        // {
+        // usersNumber = enterNumber();
+
+        // if (randomNumber == usersNumber)
+        //{
+        // Console.WriteLine("You have WON!");
+        //  return; // ყველაფერი დასრულდება გაგრძელების გარეშე
+        // }
+        // else if (randomNumber > usersNumber && counter != 3)
+        // {
+        //    Console.WriteLine("Your number is lower than random number.");
+        //}
+        // else if (randomNumber < usersNumber && counter != 3)
+        // {
+        // Console.WriteLine("Your number is higher than random number.");
+        // }
+        //  }
+        //Console.WriteLine("You have LOST!");
+
+        for (int counter = 1; counter <= 3; counter++)
         {
-            Console.WriteLine("exercise #1");
-
-            int x = 4;
-            int z = 5;
-            int y = 10;
-            Console.WriteLine(x + y * z);
-
-
-            Console.WriteLine();
-            Console.WriteLine("exercise #2");
-
-            Console.WriteLine("Please, enter your name:");
-            string name = Console.ReadLine();
-
-            Console.WriteLine();
-            Console.WriteLine("Please, enter your surname:");
-            string surname = Console.ReadLine();
-
-            Console.WriteLine();
-            Console.WriteLine("Please, enter your age:");
-            int age = Int32.Parse(Console.ReadLine());
-
-            Console.WriteLine();
-            Console.WriteLine("Please, enter your height:");
-            double height = Double.Parse(Console.ReadLine());
-
-            Console.WriteLine();
-            Console.WriteLine("Please, enter your weight:");
-            double weight = Double.Parse(Console.ReadLine());
-
-            Console.WriteLine();
-            Console.WriteLine(name + " " + surname + " " + "myAge=" + age + " " + "myHeight=" + height + " " + "myWeight=" + weight);
-
-            Console.WriteLine();
-            Console.WriteLine("exercise #3");
-
-            double Myheight = 175;
-            double Myweight = 79.5;
-            double MBI = (Myweight / (Myheight/100 * Myheight /100));
-            Console.WriteLine(MBI);
-
-            Console.WriteLine();
-            Console.WriteLine("exercise #4");
-
-            Console.WriteLine(" " + "|" + " " + "|" + " ");
-            Console.WriteLine("1" + "|" + "2" + "|" + "3");
-            Console.WriteLine("_" + "|" + "_" + "|" + "_");
-            Console.WriteLine(" " + "|" + " " + "|" + " ");
-            Console.WriteLine("4" + "|" + "5" + "|" + "6");
-            Console.WriteLine("_" + "|" + "_" + "|" + "_");
-            Console.WriteLine(" " + "|" + " " + "|" + " ");
-            Console.WriteLine("7" + "|" + "8" + "|" + "9");
-            Console.WriteLine(" " + "|" + " " + "|" + " ");
-
-
+            usersNumber = enterNumber();
+            if (checkGame(usersNumber, randomNumber, counter))
+            {
+                return;
+            }
+            Console.WriteLine("You have LOST!");
         }
+        Console.WriteLine("You have LOST!");
 
+        // კიდევ ერთი ციკლი შევქმნა, რომელიც მკითხავს მინდა თუ არა, რომ ახლიდან დავიწყო თამაში
+        // თუ კი, მაშინ უნდა ყველაფერი განახლდეს და ახლიდან დაიწყოს. თუ არა, მაშინ ყველაფერი დასრულდეს.
+    }
+
+    static void welcomingMessage()
+    {
+        Console.WriteLine("Let's play a game. I have a hidden number for you.");
+        Console.WriteLine("This number is between 0 to 20. Please, guess it.");
+        Console.WriteLine("You have three attempts.");
+    }
+
+    static int getRandomNumber()
+    {
+        //Random random = new Random();
+        //int randomNumber = random.Next(0, 21);
+        //return randomNumber;
+
+        return new Random().Next(0, 21);
+    }
+
+    static int enterNumber()
+    {
+        Console.Write("Please, enter a number: ");
+
+        return Int32.Parse(Console.ReadLine());
+    }
+
+    static bool checkGame(int usersNumber, int randomNumber, int counter)
+    {
+        if (randomNumber == usersNumber)
+        {
+            Console.WriteLine("You have WON!");
+            return true; // ყველაფერი დასრულდება გაგრძელების გარეშე
+        }
+        else if (randomNumber > usersNumber && counter != 3)
+        {
+            Console.WriteLine("Your number is lower than random number.");
+        }
+        else if (randomNumber < usersNumber && counter != 3)
+        {
+            Console.WriteLine("Your number is higher than random number.");
+        }
+        return false;
     }
 }
